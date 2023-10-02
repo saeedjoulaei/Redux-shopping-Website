@@ -1,4 +1,4 @@
-click here :   https://redux-shopping-website-9v3w.vercel.app/
+click here :  https://redux-shopping-website.vercel.app/
 
 Developed by: saeed joulaei
 
