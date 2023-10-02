@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-
-// Context
-import { CartContext } from '../../context/CartContextProvider';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // Icons
 import shopIcon from "../../assets/icons/shop.svg";
@@ -11,20 +9,22 @@ import shopIcon from "../../assets/icons/shop.svg";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-
-    const {state} = useContext(CartContext);
-
-    return (
-        <div className={styles.mainContainer}>
-            <div className={styles.container}>
-                <Link className={styles.productLink} to="/products">Products</Link>
-                <div className={styles.iconContainer}>
-                    <Link to="/cart"><img src={shopIcon} /></Link>
-                    <span>{state.itemsCounter}</span>
-                </div>
-            </div>
+  const state = useSelector((state) => state.cartsState);
+  return (
+    <div className={styles.mainContainer}>
+      <div className={styles.container}>
+        <Link className={styles.productLink} to="/products">
+          Products
+        </Link>
+        <div className={styles.iconContainer}>
+          <Link to="/cart">
+            <img src={shopIcon} alt="product" />
+          </Link>
+          <span>{state.itemsCounter}</span>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
